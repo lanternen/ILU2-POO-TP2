@@ -36,8 +36,7 @@ public class BoundaryPrendreEtal {
 		String produit = scan.next();
 		System.out.println("Combien souhaitez-vous en vendre ?");
 		int qte = scan.nextInt();
-		int nbEtal = 1 + controlPrendreEtal.prendreEtal(nomVendeur, produit, qte);
-		//c'est l'indice qui est retourné donc j'incrémente de 1 en attente d'une meilleur solution
+		int nbEtal = controlPrendreEtal.prendreEtal(nomVendeur, produit, qte);
 		System.out.println("Le vendeur " + nomVendeur + " s'est installé à l'étal n° " + nbEtal);
 	}
 }

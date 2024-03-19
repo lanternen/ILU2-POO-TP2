@@ -29,7 +29,8 @@ public class ControlPrendreEtal {
 			numeroEtal = village.installerVendeur(nouveauVendeur, produit, nbProduit);
 		}
 		
-		return numeroEtal;
+		return numeroEtal + 1;
+		//c'est l'indice qui est retourné donc j'incrémente de 1 en attente d'une meilleur solution
 	}
 
 	public boolean verifierIdentite(String nomVendeur) {
