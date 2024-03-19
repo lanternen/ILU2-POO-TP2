@@ -3,6 +3,8 @@ package frontiere;
 import java.util.Scanner;
 
 import controleur.ControlPrendreEtal;
+import personnages.Gaulois;
+
 
 public class BoundaryPrendreEtal {
 	private ControlPrendreEtal controlPrendreEtal;
@@ -14,9 +16,28 @@ public class BoundaryPrendreEtal {
 
 	public void prendreEtal(String nomVendeur) {
 		//TODO a completer
+
+		System.out.println("Bonjour " + nomVendeur + ", je vais regarder si je peux vous trouver un étal.");
+		
+		if (controlPrendreEtal.resteEtals()) {
+			System.out.println("C'est parfait, il me reste un étal pour vous !");
+			installerVendeur(nomVendeur);
+			
+		}
+		else {
+			System.out.println("Malheureusement, plus aucun étal n'est disponible.");
+		}
 	}
 
 	private void installerVendeur(String nomVendeur) {
 		//TODO a completer
+		System.out.println("Il me faudrait quelques renseignements :");
+		System.out.println("Quel produit souhaitez-vous vendre ?");
+		String produit = scan.next();
+		System.out.println("Combien souhaitez-vous en vendre ?");
+		int qte = scan.nextInt();
+		int nbEtal = 1 + controlPrendreEtal.prendreEtal(nomVendeur, produit, qte);
+		//c'est l'indice qui est retourné donc j'incrémente de 1 en attente d'une meilleur solution
+		System.out.println("Le vendeur " + nomVendeur + " s'est installé à l'étal n° " + nbEtal);
 	}
 }
