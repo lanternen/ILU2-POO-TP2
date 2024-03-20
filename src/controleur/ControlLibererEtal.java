@@ -43,7 +43,6 @@ public class ControlLibererEtal {
 //		
 //		
 		
-		
 		return donneesEtal;
 	}
 
