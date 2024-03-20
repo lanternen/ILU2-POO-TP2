@@ -133,7 +133,7 @@ public class Village {
 
 		/**
 		 * 
-		 * @return le numÃ©ro de l'Ã©tal oÃ¹ c'est installÃ© le vendeur ou -1 s'il
+		 * @return le numéro de l'étal où c'est installé le vendeur ou -1 s'il
 		 *         n'en a pas trouvÃ©
 		 */
 		private int trouverEtalLibre() {
