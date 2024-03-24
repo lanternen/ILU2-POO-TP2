@@ -22,9 +22,9 @@ public class ControlLibererEtal {
 	 * 
 	 * @param produit
 	 * @return donneesVente est un tableau de chaine contenant [0] : un boolean
-	 *         indiquant si l'étal est occupé [1] : nom du vendeur [2] : produit
-	 *         vendu [3] : quantité de produit Ã  vendre au début du marché [4] :
-	 *         quantité de produit vendu
+	 *         indiquant si l'ï¿½tal est occupï¿½ [1] : nom du vendeur [2] : produit
+	 *         vendu [3] : quantitï¿½ de produit Ã  vendre au dï¿½but du marchï¿½ [4] :
+	 *         quantitï¿½ de produit vendu
 	 */
 	public String[] libererEtal(String nomVendeur) {
 		//TODO a completer
@@ -37,9 +37,9 @@ public class ControlLibererEtal {
 			etal.libererEtal();
 		}
 				
-//		etatEtal dans Etal -> donne l'état de l'étal et la case à 0 est déjà pour le booléen
+//		etatEtal dans Etal -> donne l'ï¿½tat de l'ï¿½tal et la case ï¿½ 0 est dï¿½jï¿½ pour le boolï¿½en
 //		donneesEtal = Etal.etatEtal();
-//		màj : j'ai écrit ça 30 min avant de comprendre que c'était la solution
+//		maj : j'ai ecrit  ca 30 min avant de comprendre que c'ï¿½tait la solution
 //		
 //		
 		
