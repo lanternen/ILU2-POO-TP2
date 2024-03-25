@@ -16,4 +16,20 @@ public class ControlAcheterProduit {
 	}
 
 	//TODO a completer
+	public boolean verifierIdentiteAcheteur(String nomAcheteur) {
+		return controlVerifierIdentite.verifierIdentite(nomAcheteur);
+	}
+	// très très moyen... mais je n'ai pas accès à controlVerifierIdentite dans le Boundary Acheter
+	
+	public void acheterProduit(String produit) {
+		
+		
+		
+		
+		if (ControlVerifierIdentite.verifierIdentite(nomVendeur)) {
+			
+		} else {
+		
+		}
+	}
 }
