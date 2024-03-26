@@ -20,7 +20,6 @@ public class BoundaryAcheterProduit {
 		} else {
 			System.out.println("Quel produit voulez-vous acheter ?");
 			String produit = scan.next();
-			int choixUtilisateur = -1;
 			
 			controlAcheterProduit.acheterProduit(produit);
 		}

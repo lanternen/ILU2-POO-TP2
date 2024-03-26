@@ -1,5 +1,7 @@
 package controleur;
 
+import frontiere.Clavier;
+import personnages.Gaulois;
 import villagegaulois.Village;
 
 public class ControlAcheterProduit {
@@ -23,13 +25,39 @@ public class ControlAcheterProduit {
 	
 	public void acheterProduit(String produit) {
 		
+		//if (ControlVerifierIdentite.verifierIdentite(nomVendeur))
 		
 		
-		
-		if (ControlVerifierIdentite.verifierIdentite(nomVendeur)) {
-			
+		Gaulois vendeurs[] = village.rechercherVendeursProduit(produit);
+		if (vendeurs == null) {
+			System.out.println("Désolé, personne ne vend ce produit au marché.");
 		} else {
-		
+			System.out.println("Chez quel commerçant voulez-vous acheter des "+ produit + " ?");
+			int indice;
+			//indice pour afficher "1 - Bonemmine" et non "0 - Bonemine"
+			for (int i = 0; i < vendeurs.length; i++) {
+				indice = i + 1;
+				System.out.println(indice + " - " + vendeurs[i].getNom());
+			}
+			
+			StringBuilder question = new StringBuilder();
+			int choixUtilisateur = -1;
+			do {
+				choixUtilisateur = Clavier.entrerEntier(question.toString());
+			} while (choixUtilisateur <= 0 && choixUtilisateur > vendeurs.length + 1);
+			//
+			
+			System.out.println(" se déplace jusqu'à l'étal du vendeur " + vendeurs[choixUtilisateur].getNom());
+			//comment mettre nom acheteur ??
+			
+			
+			
 		}
+		
+		
+		
+		
+		
+		
 	}
 }
