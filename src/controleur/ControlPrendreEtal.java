@@ -31,7 +31,7 @@ public class ControlPrendreEtal {
 		
 		return numeroEtal + 1;
 		//c'est l'indice qui est retourné donc j'incrémente de 1 en attente d'une meilleure solution
-		//màj : c'est comme ça, "quand on travaille avec java, on fait souvent avec des +1 et des -1"
+		//màj : c'est comme ça, "Quand on travaille avec java, on fait souvent avec des +1 et des -1"
 	}
 
 	public boolean verifierIdentite(String nomVendeur) {

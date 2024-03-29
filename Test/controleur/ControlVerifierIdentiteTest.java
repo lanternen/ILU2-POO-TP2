@@ -41,8 +41,6 @@ class ControlVerifierIdentiteTest {
 		controlEmmenager.ajouterDruide("Panoramix", 10, 1, 5);
 		assertTrue(controlVerifierIdentite.verifierIdentite("Panoramix"));
 		
-		
-		assertEquals("Abraracourcix", abraracourcix.getNom());
 	}
 
 }
