@@ -3,6 +3,8 @@ package frontiere;
 import java.util.Scanner;
 
 import controleur.ControlAcheterProduit;
+import personnages.Gaulois;
+import villagegaulois.Etal;
 
 public class BoundaryAcheterProduit {
 	private Scanner scan = new Scanner(System.in);
@@ -21,7 +23,84 @@ public class BoundaryAcheterProduit {
 			System.out.println("Quel produit voulez-vous acheter ?");
 			String produit = scan.next();
 			
-			controlAcheterProduit.acheterProduit(produit);
+			Gaulois vendeurs[] = marche.rechercherVendeursProduit(produit);
+			if (vendeurs == null) {
+				System.out.println("Désolé, personne ne vend ce produit au marché.");
+			} else {
+				
+				System.out.println("Chez quel commerçant voulez-vous acheter des " + produit + " ?");
+				int indice;
+				//indice pour afficher "1 - Bonemmine" et non "0 - Bonemine"
+				for (int i = 0; i < vendeurs.length; i++) {
+					indice = i + 1;
+					System.out.println(indice + " - " + vendeurs[i].getNom());
+				}
+				
+				
+				StringBuilder question = new StringBuilder();
+				int choixUtilisateur = -1;
+				do {
+					choixUtilisateur = Clavier.entrerEntier(question.toString());
+				} while (choixUtilisateur <= 0 && choixUtilisateur > vendeurs.length + 1);
+
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				System.out.println(nomAcheteur + " se déplace jusqu'à l'étal du vendeur " + nomVendeur);
+				//comment mettre nom acheteur ??
+				
+				Etal etalVendeur = controlTrouverEtalVendeur.trouverEtalVendeur(nomVendeur);			
+				String etatEtal[] = etalVendeur.etatEtal();
+				int qteDispo = Integer.parseInt(etatEtal[3]);
+				
+				if (qteDispo == 0)
+				{
+					// encore problème nom acheteur
+					System.out.println(nomAcheteur + " veut acheter " + quantite + " " + produit + ", malheureusement il n'y en a plus !");
+				}
+				else {
+					if (quantite > qteDispo) {
+						System.out.println(nomAcheteur + " achète " + quantite + " " + produit + " à " + nomVendeur);
+					} else {
+						System.out.println(nomAcheteur + " veut acheter " + quantite +  " " + produit + ", malheureusement " + nomVendeur +
+								" n'en a plus que " + qteDispo + ". " + " achète tout le stock de " + nomVendeur);
+					}
+				}
+				
+				
+				controlAcheterProduit.acheterProduit(nomVendeur, quantite);
+				
+				
+				
+				
+				
+				
+			}
+				
+				
+				
+				
+				
+				
+				
+				
+			int quantite;
+			System.out.println("Combien de " + produit + " voulez-vous acheter ?");
+			quantite = scan.nextInt();
+			
+			
+			controlAcheterProduit.acheterProduit(nomAcheteur, quantite);
+			
+			
 		}
 		
 		
