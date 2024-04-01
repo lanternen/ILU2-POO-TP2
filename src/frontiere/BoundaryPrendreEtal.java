@@ -17,15 +17,19 @@ public class BoundaryPrendreEtal {
 	public void prendreEtal(String nomVendeur) {
 		//TODO a completer
 
-		System.out.println("Bonjour " + nomVendeur + ", je vais regarder si je peux vous trouver un étal.");
-		
-		if (controlPrendreEtal.resteEtals()) {
-			System.out.println("C'est parfait, il me reste un étal pour vous !");
-			installerVendeur(nomVendeur);
+		if (! controlPrendreEtal.verifierIdentite(nomVendeur)) {
+			System.out.println("Désolé " + nomVendeur + " mais il faut être habitant de notre village pour commercer ici.");
+		} else {
+			System.out.println("Bonjour " + nomVendeur + ", je vais regarder si je peux vous trouver un étal.");
 			
-		}
-		else {
-			System.out.println("Malheureusement, plus aucun étal n'est disponible.");
+			if (controlPrendreEtal.resteEtals()) {
+				System.out.println("C'est parfait, il me reste un étal pour vous !");
+				installerVendeur(nomVendeur);
+				
+			}
+			else {
+				System.out.println("Malheureusement, plus aucun étal n'est disponible.");
+			}
 		}
 	}
 

@@ -26,7 +26,7 @@ public class ControlAcheterProduit {
 	
 	
 	public Gaulois[] trouverVendeurs(String produit) {
-		return village.rechercherVendeursProduit(produit);
+		return this.village.rechercherVendeursProduit(produit);
 	}
 	
 	public Etal allerEtal(String nomVendeur) {
@@ -40,13 +40,12 @@ public class ControlAcheterProduit {
 
 			
 			Etal etalVendeur = controlTrouverEtalVendeur.trouverEtalVendeur(nomVendeur);			
-			String etatEtal[] = etalVendeur.etatEtal();
-		
-			
-			return etalVendeur.acheterProduit(quantite);
-			
-			
-		
-		
+			//String etatEtal[] = etalVendeur.etatEtal();
+			if (etalVendeur == null) {
+				return -1;
+			} else {
+				return etalVendeur.acheterProduit(quantite);
+			}
+
 	}
 }

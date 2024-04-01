@@ -46,72 +46,74 @@ public class BoundaryAcheterProduit {
 					System.out.println(indice + " - " + vendeurs[i].getNom());
 				}
 				
-				
 				StringBuilder question = new StringBuilder();
 				int choixUtilisateur = -1;
 				do {
 					choixUtilisateur = Clavier.entrerEntier(question.toString());
-				} while (choixUtilisateur <= 0 && choixUtilisateur > vendeurs.length + 1);
+					choixUtilisateur -= 1;			// - 1 car j'ai rajouté + 1 à l'indice plus haut
+				} while (choixUtilisateur < 0 && choixUtilisateur > vendeurs.length );
 
 				
 				
+				
+				////////////////// déplacement à l'étal
 								
 				String nomVendeur = vendeurs[choixUtilisateur].getNom();
-				
 				System.out.println(nomAcheteur + " se déplace jusqu'à l'étal du vendeur " + nomVendeur);
-	
+				System.out.println("Bonjour " + nomAcheteur);
+				
+				
+				
+				////////////////// demander quantite
 				
 				Etal etalVendeur = controlAcheterProduit.allerEtal(nomVendeur);			
-				String etatEtal[] = etalVendeur.etatEtal();
-				int qteDispo = Integer.parseInt(etatEtal[3]);
 				
-				System.out.println("Combien de " + produit + " voulez-vous acheter ?");
-				int quantite = scan.nextInt();
-				
-				
-				
-				if (qteDispo == 0)
-				{
-					// encore problème nom acheteur
-					System.out.println(nomAcheteur + " veut acheter " + quantite + " " + produit + ", malheureusement il n'y en a plus !");
-				}
-				else {
-					if (quantite > qteDispo) {
-						System.out.println(nomAcheteur + " achète " + quantite + " " + produit + " à " + nomVendeur);
-					} else {
-						System.out.println(nomAcheteur + " veut acheter " + quantite +  " " + produit + ", malheureusement " + nomVendeur +
-								" n'en a plus que " + qteDispo + ". " + " achète tout le stock de " + nomVendeur);
+				if (etalVendeur == null) {
+					System.out.println("cet étal n'existe pas");
+				} else {
+					String etatEtal[] = etalVendeur.etatEtal();
+					int qteDispo = Integer.parseInt(etatEtal[3]);
+					
+					System.out.println("Combien de " + produit + " voulez-vous acheter ?");
+					int quantite = scan.nextInt();
+					
+					
+					controlAcheterProduit.acheterProduit(nomAcheteur, quantite);
+					
+					
+					///////////////// possibilités selon quantité et quantité disponibl à la vente
+					///////////////// + achat du produit
+					int nbAchete;
+					
+					if (qteDispo == 0)
+					{
+						// encore problème nom acheteur
+						System.out.println(nomAcheteur + " veut acheter " + quantite + " " + produit + ", malheureusement il n'y en a plus !");
 					}
+					else {
+						if (quantite < qteDispo) {
+							nbAchete = controlAcheterProduit.acheterProduit(nomVendeur, quantite);
+							System.out.println(nomAcheteur + " achète " + nbAchete + " " + produit + " à " + nomVendeur);
+						} else {
+							nbAchete = controlAcheterProduit.acheterProduit(nomVendeur, quantite);
+							System.out.println(nomAcheteur + " veut acheter " + quantite +  " " + produit + ", malheureusement " + nomVendeur +
+									" n'en a plus que " + qteDispo + ". " + " achète tout le stock de " + nomVendeur);
+						}
+					}
+					
+					/////////////// achat du produit
+					
+					//int nbAchete = controlAcheterProduit.acheterProduit(nomVendeur, quantite);
+					//System.out.println(nomAcheteur + " achète " + nbAchete + " " + produit + " à " + nomVendeur);
 				}
 				
-				System.out.println("Bonjour " + nomAcheteur);
-				int nbAchete = controlAcheterProduit.acheterProduit(nomVendeur, quantite);
-				System.out.println(nomAcheteur + " achète " + nbAchete + " " + produit + " à " + nomVendeur);
 				
-				
-				
-				
+	
 				
 			}
-				
-				
-				
-				
-				
-				
-				
-				
-			int quantite;
-			System.out.println("Combien de " + produit + " voulez-vous acheter ?");
-			quantite = scan.nextInt();
-			
-			
-			controlAcheterProduit.acheterProduit(nomAcheteur, quantite);
-			
-			
+	
 		}
 		
-		
-		
+
 	}
 }
