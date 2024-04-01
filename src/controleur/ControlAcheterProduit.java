@@ -23,6 +23,17 @@ public class ControlAcheterProduit {
 	}
 	// très très moyen... mais je n'ai pas accès à controlVerifierIdentite dans le Boundary Acheter
 	
+	
+	
+	public Gaulois[] trouverVendeurs(String produit) {
+		return village.rechercherVendeursProduit(produit);
+	}
+	
+	public Etal allerEtal(String nomVendeur) {
+		return controlTrouverEtalVendeur.trouverEtalVendeur(nomVendeur);
+	}
+	
+	
 	public int acheterProduit(String nomVendeur, int quantite) {
 		
 		//if (ControlVerifierIdentite.verifierIdentite(nomVendeur))
@@ -35,11 +46,6 @@ public class ControlAcheterProduit {
 			return etalVendeur.acheterProduit(quantite);
 			
 			
-		
-		
-		
-		
-		
 		
 		
 	}

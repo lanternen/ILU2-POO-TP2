@@ -17,16 +17,26 @@ public class BoundaryAcheterProduit {
 	public void acheterProduit(String nomAcheteur) {
 		// TODO à completer
 		
+		///////////////// vérification de l'identité de l'acheteur
+		
 		if (! controlAcheterProduit.verifierIdentiteAcheteur(nomAcheteur)) {
 			System.out.println("Je suis désolé " + nomAcheteur + ", mais il faut etre un habitant de notre village pour commercer ici");
 		} else {
+			
+			////////////////// demander le produit désiré
+			
 			System.out.println("Quel produit voulez-vous acheter ?");
 			String produit = scan.next();
 			
-			Gaulois vendeurs[] = marche.rechercherVendeursProduit(produit);
+			
+			///////////////// trouver les vendeurs du produit		
+			
+			Gaulois vendeurs[] = controlAcheterProduit.trouverVendeurs(produit);
 			if (vendeurs == null) {
 				System.out.println("Désolé, personne ne vend ce produit au marché.");
 			} else {
+				
+				////////////////////// sélection du commerçant
 				
 				System.out.println("Chez quel commerçant voulez-vous acheter des " + produit + " ?");
 				int indice;
@@ -45,22 +55,20 @@ public class BoundaryAcheterProduit {
 
 				
 				
-				
-				
-				
-				
-				
-				
-				
-				
-				
+								
+				String nomVendeur = vendeurs[choixUtilisateur].getNom();
 				
 				System.out.println(nomAcheteur + " se déplace jusqu'à l'étal du vendeur " + nomVendeur);
-				//comment mettre nom acheteur ??
+	
 				
-				Etal etalVendeur = controlTrouverEtalVendeur.trouverEtalVendeur(nomVendeur);			
+				Etal etalVendeur = controlAcheterProduit.allerEtal(nomVendeur);			
 				String etatEtal[] = etalVendeur.etatEtal();
 				int qteDispo = Integer.parseInt(etatEtal[3]);
+				
+				System.out.println("Combien de " + produit + " voulez-vous acheter ?");
+				int quantite = scan.nextInt();
+				
+				
 				
 				if (qteDispo == 0)
 				{
@@ -76,9 +84,9 @@ public class BoundaryAcheterProduit {
 					}
 				}
 				
-				
-				controlAcheterProduit.acheterProduit(nomVendeur, quantite);
-				
+				System.out.println("Bonjour " + nomAcheteur);
+				int nbAchete = controlAcheterProduit.acheterProduit(nomVendeur, quantite);
+				System.out.println(nomAcheteur + " achète " + nbAchete + " " + produit + " à " + nomVendeur);
 				
 				
 				
