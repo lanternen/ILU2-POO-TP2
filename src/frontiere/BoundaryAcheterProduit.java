@@ -46,12 +46,13 @@ public class BoundaryAcheterProduit {
 					System.out.println(indice + " - " + vendeurs[i].getNom());
 				}
 				
-				StringBuilder question = new StringBuilder();
+				//StringBuilder question = new StringBuilder();
 				int choixUtilisateur = -1;
 				do {
-					choixUtilisateur = Clavier.entrerEntier(question.toString());
+					// Clavier.entrerEntier(question.toString()
+					choixUtilisateur = scan.nextInt();
 					choixUtilisateur -= 1;			// - 1 car j'ai rajouté + 1 à l'indice plus haut
-				} while (choixUtilisateur < 0 && choixUtilisateur > vendeurs.length );
+				} while (choixUtilisateur < 0 || choixUtilisateur > vendeurs.length - 1);
 
 				
 				
@@ -97,7 +98,7 @@ public class BoundaryAcheterProduit {
 						} else {
 							nbAchete = controlAcheterProduit.acheterProduit(nomVendeur, quantite);
 							System.out.println(nomAcheteur + " veut acheter " + quantite +  " " + produit + ", malheureusement " + nomVendeur +
-									" n'en a plus que " + qteDispo + ". " + " achète tout le stock de " + nomVendeur);
+									" n'en a plus que " + qteDispo + ". " + nomAcheteur + " achète tout le stock de " + nomVendeur);
 						}
 					}
 					
