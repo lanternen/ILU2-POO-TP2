@@ -49,9 +49,18 @@ public class BoundaryAcheterProduit {
 				//StringBuilder question = new StringBuilder();
 				int choixUtilisateur = -1;
 				do {
+					
+					
+					
 					// Clavier.entrerEntier(question.toString()
 					choixUtilisateur = scan.nextInt();
 					choixUtilisateur -= 1;			// - 1 car j'ai rajouté + 1 à l'indice plus haut
+					
+					if (choixUtilisateur < 0 || choixUtilisateur > vendeurs.length -1) {
+						System.out.println("Entrez un numéro de commerçant valide");
+					}
+					
+					
 				} while (choixUtilisateur < 0 || choixUtilisateur > vendeurs.length - 1);
 
 				
@@ -76,8 +85,13 @@ public class BoundaryAcheterProduit {
 					int qteDispo = Integer.parseInt(etatEtal[3]);
 					
 					System.out.println("Combien de " + produit + " voulez-vous acheter ?");
-					int quantite = scan.nextInt();
-					
+					int quantite = -1;
+					do {
+						quantite = scan.nextInt();
+						if (quantite < 0) {
+							System.out.println("Entrez un nombre positif, s'il-vous-plaît.");
+						}
+					} while (quantite < 0);
 					
 					controlAcheterProduit.acheterProduit(nomAcheteur, quantite);
 					
@@ -104,8 +118,7 @@ public class BoundaryAcheterProduit {
 					
 					/////////////// achat du produit
 					
-					//int nbAchete = controlAcheterProduit.acheterProduit(nomVendeur, quantite);
-					//System.out.println(nomAcheteur + " achète " + nbAchete + " " + produit + " à " + nomVendeur);
+					
 				}
 				
 				
