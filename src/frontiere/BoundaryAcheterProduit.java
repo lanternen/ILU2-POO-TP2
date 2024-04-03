@@ -106,7 +106,7 @@ public class BoundaryAcheterProduit {
 						System.out.println(nomAcheteur + " veut acheter " + quantite + " " + produit + ", malheureusement il n'y en a plus !");
 					}
 					else {
-						if (quantite < qteDispo) {
+						if (quantite <= qteDispo) {
 							nbAchete = controlAcheterProduit.acheterProduit(nomVendeur, quantite);
 							System.out.println(nomAcheteur + " achète " + nbAchete + " " + produit + " à " + nomVendeur);
 						} else {
