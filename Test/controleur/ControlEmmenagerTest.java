@@ -46,7 +46,8 @@ class ControlEmmenagerTest {
 		controlEmmenager.ajouterDruide("Panoramix", 10, 1, 5);
 		// pas de vérification
 		
-		
+		Druide panoramix = (Druide) village.trouverHabitant("Panoramix");
+		assertEquals("Panoramix", panoramix.getNom());
 		
 	}	
 		
