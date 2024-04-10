@@ -19,7 +19,7 @@ class ControlLibererEtalTest {
 	@BeforeEach
 	public void initialiserSituation() {
 		System.out.println("Initialisation...");
-		village = new Village("le village des irréductibles", 10, 5);
+		village = new Village("le village des irrï¿½ductibles", 10, 5);
 		abraracourcix = new Chef("Abraracourcix", 10, village);
 		village.setChef(abraracourcix);
 		
@@ -27,7 +27,8 @@ class ControlLibererEtalTest {
 		village.ajouterHabitant(obelix);
 		village.installerVendeur(obelix, "sanglier", 5);
 		
-		
+		this.controlTrouverEtalVendeur = new ControlTrouverEtalVendeur(village); // important pour passer dans les asserts
+																				// des 2 derniÃ¨res fonctions ici
 	}
 	
 	@Test
@@ -39,12 +40,15 @@ class ControlLibererEtalTest {
 	@Test
 	void testIsVendeur() {
 		ControlLibererEtal controlLibererEtal = new ControlLibererEtal(controlTrouverEtalVendeur);
-		assertNull(controlLibererEtal.isVendeur("inconnu"));
+		assertFalse(controlLibererEtal.isVendeur("inconnu"));
+		assertFalse(controlLibererEtal.isVendeur("Bonemine"));
+		assertTrue(controlLibererEtal.isVendeur("obelix"));
 	}
 
 	@Test
 	void testLibererEtal() {
-		fail("Not yet implemented");
+		ControlLibererEtal controlLibererEtal = new ControlLibererEtal(controlTrouverEtalVendeur);
+		assertNull(controlLibererEtal.libererEtal("inconnu"));
 	}
 
 }

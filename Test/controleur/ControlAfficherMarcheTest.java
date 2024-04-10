@@ -22,7 +22,7 @@ class ControlAfficherMarcheTest {
 	@BeforeEach
 	public void initialiserSituation() {
 		System.out.println("Initialisation...");
-		village = new Village("le village des irréductibles", 10, 5);
+		village = new Village("le village des irrï¿½ductibles", 10, 5);
 		abraracourcix = new Chef("Abraracourcix", 10, village);
 		village.setChef(abraracourcix);
 		
@@ -55,14 +55,12 @@ class ControlAfficherMarcheTest {
 		ControlAfficherMarche controlAfficherMarche = new ControlAfficherMarche(village);
 		String[] testInfosMarche = controlAfficherMarche.donnerInfosMarche();
 		
-		
-	
 //		//marche not null
 		//assertNotNull(village.donnerEtatMarche()) --> c'est le controleur qu'on veut tester
 		assertNotNull(testInfosMarche);
 //		//taille tableau attendue
 		assertEquals(5, village.donnerNbEtal());
-		//5 car c'est le nombre d'étal donné dans le @BeforeEach
+		//5 car c'est le nombre d'ï¿½tal donnï¿½ dans le @BeforeEach
 		
 //		
 //		// ensuite le test avec la boucle
