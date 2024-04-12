@@ -49,6 +49,7 @@ class ControlLibererEtalTest {
 	void testLibererEtal() {
 		ControlLibererEtal controlLibererEtal = new ControlLibererEtal(controlTrouverEtalVendeur);
 		assertNull(controlLibererEtal.libererEtal("inconnu"));
+		assertNotNull(controlLibererEtal.libererEtal("obelix"));	//assert que le tab retourné ne soit pas null
 	}
 
 }
